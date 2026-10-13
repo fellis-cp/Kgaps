@@ -1,0 +1,18 @@
+{
+    "KPackageStructure": "KWin/Script",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Flo"
+            }
+        ],
+        "Description": "Adds configurable padding and gaps (top, bottom, left, right) to maximized windows",
+        "Icon": "preferences-system-windows-script-test",
+        "Id": "kgaps",
+        "License": "GPL-3.0-or-later",
+        "Name": "KGaps",
+        "Version": "1.0.0",
+        "X-KDE-ConfigModule": "kwin/effects/configs/kcm_kwin4_genericscripted"
+    },
+    "X-Plasma-API": "javascript"
+}

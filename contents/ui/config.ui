@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>KgapsConfig</class>
+    <widget class="QWidget" name="KgapsConfig">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>480</width>
+                <height>400</height>
+            </rect>
+        </property>
+        <layout class="QVBoxLayout" name="mainLayout">
+            <item>
+                <widget class="QTabWidget" name="tabWidget">
+                    <!-- Tab 1: Gaps & Padding -->
+                    <widget class="QWidget" name="tabPadding">
+                        <attribute name="title">
+                            <string>Gaps &amp; Padding</string>
+                        </attribute>
+                        <layout class="QVBoxLayout" name="paddingLayout">
+                            <item>
+                                <widget class="QGroupBox" name="groupGaps">
+                                    <property name="title">
+                                        <string>Edge Margins (Pixels)</string>
+                                    </property>
+                                    <layout class="QGridLayout" name="gridLayoutGaps">
+                                        <!-- Top -->
+                                        <item row="0" column="0">
+                                            <widget class="QLabel" name="labelTop">
+                                                <property name="text">
+                                                    <string>Top gap:</string>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                        <item row="0" column="1">
+                                            <widget class="QSpinBox" name="kcfg_gapTop">
+                                                <property name="minimum">
+                                                    <number>0</number>
+                                                </property>
+                                                <property name="maximum">
+                                                    <number>200</number>
+                                                </property>
+                                                <property name="value">
+                                                    <number>15</number>
+                                                </property>
+                                                <property name="suffix">
+                                                    <string> px</string>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                        <!-- Bottom -->
+                                        <item row="1" column="0">
+                                            <widget class="QLabel" name="labelBottom">
+                                                <property name="text">
+                                                    <string>Bottom gap:</string>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                        <item row="1" column="1">
+                                            <widget class="QSpinBox" name="kcfg_gapBottom">
+                                                <property name="minimum">
+                                                    <number>0</number>
+                                                </property>
+                                                <property name="maximum">
+                                                    <number>200</number>
+                                                </property>
+                                                <property name="value">
+                                                    <number>15</number>
+                                                </property>
+                                                <property name="suffix">
+                                                    <string> px</string>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                        <!-- Left -->
+                                        <item row="2" column="0">
+                                            <widget class="QLabel" name="labelLeft">
+                                                <property name="text">
+                                                    <string>Left gap:</string>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                        <item row="2" column="1">
+                                            <widget class="QSpinBox" name="kcfg_gapLeft">
+                                                <property name="minimum">
+                                                    <number>0</number>
+                                                </property>
+                                                <property name="maximum">
+                                                    <number>200</number>
+                                                </property>
+                                                <property name="value">
+                                                    <number>15</number>
+                                                </property>
+                                                <property name="suffix">
+                                                    <string> px</string>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                        <!-- Right -->
+                                        <item row="3" column="0">
+                                            <widget class="QLabel" name="labelRight">
+                                                <property name="text">
+                                                    <string>Right gap:</string>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                        <item row="3" column="1">
+                                            <widget class="QSpinBox" name="kcfg_gapRight">
+                                                <property name="minimum">
+                                                    <number>0</number>
+                                                </property>
+                                                <property name="maximum">
+                                                    <number>200</number>
+                                                </property>
+                                                <property name="value">
+                                                    <number>15</number>
+                                                </property>
+                                                <property name="suffix">
+                                                    <string> px</string>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                    </layout>
+                                </widget>
+                            </item>
+                            <item>
+                                <widget class="QGroupBox" name="groupDock">
+                                    <property name="title">
+                                        <string>Dock / Panel Floating Compensation</string>
+                                    </property>
+                                    <layout class="QVBoxLayout" name="layoutDock">
+                                        <item>
+                                            <widget class="QCheckBox" name="kcfg_compensateDock">
+                                                <property name="text">
+                                                    <string>Add extra margin adjacent to floating panels/docks</string>
+                                                </property>
+                                                <property name="toolTip">
+                                                    <string>Prevents KDE floating panels from de-floating and snapping flat when a window is maximized.</string>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                        <item>
+                                            <layout class="QHBoxLayout" name="layoutDockMargin">
+                                                <item>
+                                                    <widget class="QLabel" name="labelDockMargin">
+                                                        <property name="text">
+                                                            <string>Dock extra margin:</string>
+                                                        </property>
+                                                    </widget>
+                                                </item>
+                                                <item>
+                                                    <widget class="QSpinBox" name="kcfg_dockMargin">
+                                                        <property name="minimum">
+                                                            <number>0</number>
+                                                        </property>
+                                                        <property name="maximum">
+                                                            <number>50</number>
+                                                        </property>
+                                                        <property name="value">
+                                                            <number>12</number>
+                                                        </property>
+                                                        <property name="suffix">
+                                                            <string> px</string>
+                                                        </property>
+                                                    </widget>
+                                                </item>
+                                                <item>
+                                                    <spacer name="dockMarginSpacer">
+                                                        <property name="orientation">
+                                                            <enum>Qt::Horizontal</enum>
+                                                        </property>
+                                                    </spacer>
+                                                </item>
+                                            </layout>
+                                        </item>
+                                    </layout>
+                                </widget>
+                            </item>
+                            <item>
+                                <spacer name="spacerPadding">
+                                    <property name="orientation">
+                                        <enum>Qt::Vertical</enum>
+                                    </property>
+                                </spacer>
+                            </item>
+                        </layout>
+                    </widget>
+
+                    <!-- Tab 2: Window Behavior -->
+                    <widget class="QWidget" name="tabBehavior">
+                        <attribute name="title">
+                            <string>Behavior</string>
+                        </attribute>
+                        <layout class="QVBoxLayout" name="behaviorLayout">
+                            <item>
+                                <widget class="QCheckBox" name="kcfg_autoMaximizeNewWindows">
+                                    <property name="text">
+                                        <string>Automatically maximize newly opened windows (with gaps)</string>
+                                    </property>
+                                    <property name="toolTip">
+                                        <string>When enabled, every eligible application window will automatically maximize with gaps upon launch.</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item>
+                                <widget class="QCheckBox" name="kcfg_applyToFullscreen">
+                                    <property name="text">
+                                        <string>Apply gaps to fullscreen windows</string>
+                                    </property>
+                                    <property name="toolTip">
+                                        <string>By default, true fullscreen windows (e.g. video players, games) remain full screen. Enable this to force padding onto fullscreen apps.</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item>
+                                <spacer name="spacerBehavior">
+                                    <property name="orientation">
+                                        <enum>Qt::Vertical</enum>
+                                    </property>
+                                </spacer>
+                            </item>
+                        </layout>
+                    </widget>
+
+                    <!-- Tab 3: Exclusions -->
+                    <widget class="QWidget" name="tabIgnored">
+                        <attribute name="title">
+                            <string>Exclusions</string>
+                        </attribute>
+                        <layout class="QVBoxLayout" name="ignoredLayout">
+                            <item>
+                                <widget class="QLabel" name="labelIgnoredInfo">
+                                    <property name="text">
+                                        <string>System overlays (plasmashell, krunner, spectacle, polkit, etc.) are always excluded.
+
+Add extra apps below by their window class name (comma-separated, e.g. "discord, steam, gimp"):</string>
+                                    </property>
+                                    <property name="wordWrap">
+                                        <bool>true</bool>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item>
+                                <widget class="QLineEdit" name="kcfg_ignoredApps">
+                                    <property name="placeholderText">
+                                        <string>e.g. steam, vlc, discord</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item>
+                                <spacer name="spacerIgnored">
+                                    <property name="orientation">
+                                        <enum>Qt::Vertical</enum>
+                                    </property>
+                                </spacer>
+                            </item>
+                        </layout>
+                    </widget>
+                </widget>
+            </item>
+        </layout>
+    </widget>
+</ui>

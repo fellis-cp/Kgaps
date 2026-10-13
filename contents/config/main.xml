@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <kcfgfile name=""/>
+    <group name="Script-kgaps">
+        <entry name="gapTop" type="Int">
+            <default>15</default>
+        </entry>
+        <entry name="gapBottom" type="Int">
+            <default>15</default>
+        </entry>
+        <entry name="gapLeft" type="Int">
+            <default>15</default>
+        </entry>
+        <entry name="gapRight" type="Int">
+            <default>15</default>
+        </entry>
+        <entry name="compensateDock" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="dockMargin" type="Int">
+            <default>12</default>
+        </entry>
+        <entry name="applyToFullscreen" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="autoMaximizeNewWindows" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="ignoredApps" type="String">
+            <default></default>
+        </entry>
+    </group>
+</kcfg>
