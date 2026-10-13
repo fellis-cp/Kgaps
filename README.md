@@ -1,5 +1,8 @@
 # KGaps
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4f041bda-82ce-4011-bf91-8c3e25f9e0cd" />
+
+
 A native KWin script for **KDE Plasma 6** (Wayland & X11) that adds customizable padding and gaps (top, bottom, left, and right) around maximized applications.
 
 ## Features
