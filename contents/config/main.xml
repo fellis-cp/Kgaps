@@ -32,5 +32,8 @@
         <entry name="ignoredApps" type="String">
             <default></default>
         </entry>
+        <entry name="fullscreenExitCooldown" type="Int">
+            <default>500</default>
+        </entry>
     </group>
 </kcfg>

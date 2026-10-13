@@ -253,6 +253,27 @@ class SettingsWindow(QMainWindow):
         self.chk_fullscreen.setToolTip("Keep unchecked so games, videos, and F11 apps remain truly fullscreen.")
         behavior_form.addWidget(self.chk_fullscreen)
 
+        # Fullscreen exit cooldown
+        cooldown_box = QHBoxLayout()
+        lbl_cooldown = QLabel("Fullscreen exit cooldown:")
+        lbl_cooldown.setToolTip(
+            "How long (in milliseconds) to wait after a window exits fullscreen\n"
+            "before applying gaps. This prevents gaps from flashing during the\n"
+            "exit transition (e.g. leaving YouTube or game fullscreen).\n\n"
+            "Increase this if gaps briefly appear when exiting fullscreen.\n"
+            "Set to 0 to disable the cooldown entirely."
+        )
+        self.spin_fs_cooldown = QSpinBox()
+        self.spin_fs_cooldown.setRange(0, 2000)
+        self.spin_fs_cooldown.setSingleStep(50)
+        self.spin_fs_cooldown.setSuffix(" ms")
+        self.spin_fs_cooldown.setValue(500)
+        self.spin_fs_cooldown.setToolTip(lbl_cooldown.toolTip())
+        cooldown_box.addWidget(lbl_cooldown)
+        cooldown_box.addWidget(self.spin_fs_cooldown)
+        cooldown_box.addStretch()
+        behavior_form.addLayout(cooldown_box)
+
         behavior_layout.addWidget(group_behavior)
         behavior_layout.addStretch()
         self.tabs.addTab(tab_behavior, "Behavior")
@@ -309,6 +330,7 @@ class SettingsWindow(QMainWindow):
         self.spin_dock_margin.setValue(read_kwin_config("dockMargin", 12))
         self.chk_auto_maximize.setChecked(read_kwin_config("autoMaximizeNewWindows", False))
         self.chk_fullscreen.setChecked(read_kwin_config("applyToFullscreen", False))
+        self.spin_fs_cooldown.setValue(read_kwin_config("fullscreenExitCooldown", 500))
         self.edit_ignored.setText(read_kwin_config("ignoredApps", ""))
 
         self.preview.update_gaps(t, b, l, r)
@@ -353,6 +375,7 @@ class SettingsWindow(QMainWindow):
         self.spin_dock_margin.setValue(12)
         self.chk_auto_maximize.setChecked(False)
         self.chk_fullscreen.setChecked(False)
+        self.spin_fs_cooldown.setValue(500)
         self.edit_ignored.setText("")
         self.lbl_status.setText("Reset to defaults (click Apply to save)")
 
@@ -371,6 +394,7 @@ class SettingsWindow(QMainWindow):
         write_kwin_config("dockMargin", self.spin_dock_margin.value())
         write_kwin_config("autoMaximizeNewWindows", self.chk_auto_maximize.isChecked())
         write_kwin_config("applyToFullscreen", self.chk_fullscreen.isChecked())
+        write_kwin_config("fullscreenExitCooldown", self.spin_fs_cooldown.value())
         write_kwin_config("ignoredApps", self.edit_ignored.text().strip())
 
         # Trigger KWin reconfigure
