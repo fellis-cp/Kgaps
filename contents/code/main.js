@@ -198,8 +198,11 @@ function applyGaps(win) {
 
     var wid = String(win.internalId);
     busy[wid] = true;
-    win.frameGeometry = target;
-    busy[wid] = false;
+    try {
+        win.frameGeometry = target;
+    } finally {
+        busy[wid] = false;
+    }
 }
 
 // Preempt panel rearranges so windows don't flicker between full area and gap
@@ -212,8 +215,11 @@ function preemptRearrange(win) {
     if (!same(win.frameGeometry, target)) return;
 
     busy[wid] = true;
-    win.frameGeometry = target;
-    busy[wid] = false;
+    try {
+        win.frameGeometry = target;
+    } finally {
+        busy[wid] = false;
+    }
 }
 
 // Connects all KWin signals for a window and does an initial gap apply.
@@ -281,6 +287,7 @@ function init() {
 
     // Clean up internal tracking when windows close
     workspace.windowRemoved.connect(function (win) {
+        if (!win) return;
         var wid = String(win.internalId);
         delete busy[wid];
         delete reqMode[wid];

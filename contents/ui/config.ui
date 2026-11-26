@@ -214,6 +214,46 @@
                                 </widget>
                             </item>
                             <item>
+                                <layout class="QHBoxLayout" name="layoutFullscreenCooldown">
+                                    <item>
+                                        <widget class="QLabel" name="labelFullscreenCooldown">
+                                            <property name="text">
+                                                <string>Fullscreen exit cooldown:</string>
+                                            </property>
+                                        </widget>
+                                    </item>
+                                    <item>
+                                        <widget class="QSpinBox" name="kcfg_fullscreenExitCooldown">
+                                            <property name="minimum">
+                                                <number>0</number>
+                                            </property>
+                                            <property name="maximum">
+                                                <number>2000</number>
+                                            </property>
+                                            <property name="singleStep">
+                                                <number>50</number>
+                                            </property>
+                                            <property name="value">
+                                                <number>500</number>
+                                            </property>
+                                            <property name="suffix">
+                                                <string> ms</string>
+                                            </property>
+                                            <property name="toolTip">
+                                                <string>How long (in milliseconds) to wait after exiting fullscreen before applying gaps.</string>
+                                            </property>
+                                        </widget>
+                                    </item>
+                                    <item>
+                                        <spacer name="fullscreenCooldownSpacer">
+                                            <property name="orientation">
+                                                <enum>Qt::Horizontal</enum>
+                                            </property>
+                                        </spacer>
+                                    </item>
+                                </layout>
+                            </item>
+                            <item>
                                 <spacer name="spacerBehavior">
                                     <property name="orientation">
                                         <enum>Qt::Vertical</enum>

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=KGaps Settings
 Comment=Configure window padding and gaps for KDE Plasma 6
-Exec=/home/flo/Project/Kgaps/settings.sh
+Exec=kgaps-settings
 Icon=preferences-system-windows-script-test
 Terminal=false
 Type=Application
