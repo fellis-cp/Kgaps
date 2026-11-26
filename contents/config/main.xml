@@ -26,6 +26,12 @@
         <entry name="applyToFullscreen" type="Bool">
             <default>false</default>
         </entry>
+        <entry name="applyToQuickTile" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="quickTileInnerGap" type="Int">
+            <default>10</default>
+        </entry>
         <entry name="autoMaximizeNewWindows" type="Bool">
             <default>false</default>
         </entry>

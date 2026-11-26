@@ -118,6 +118,19 @@ class TestSettingsGUI(unittest.TestCase):
             self.assertEqual(win.spins["top"].value(), 15)
             win.close()
 
+    def test_window_quick_tile_controls(self):
+        with mock.patch.object(kgaps_settings, "read_kwin_config", side_effect=lambda k, d: d):
+            win = kgaps_settings.SettingsWindow()
+            self.assertTrue(win.chk_quick_tile.isChecked())
+            self.assertEqual(win.spin_inner_gap.value(), 10)
+            win.chk_quick_tile.setChecked(False)
+            self.assertFalse(win.spin_inner_gap.isEnabled())
+            win.reset_defaults()
+            self.assertTrue(win.chk_quick_tile.isChecked())
+            self.assertEqual(win.spin_inner_gap.value(), 10)
+            self.assertTrue(win.spin_inner_gap.isEnabled())
+            win.close()
+
 
 if __name__ == "__main__":
     unittest.main()

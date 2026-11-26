@@ -24,6 +24,8 @@ DEFAULT_CONFIG = {
     "gapRight": 15,
     "compensateDock": True,
     "dockMargin": 12,
+    "applyToQuickTile": True,
+    "quickTileInnerGap": 10,
     "autoMaximizeNewWindows": False,
     "applyToFullscreen": False,
     "fullscreenExitCooldown": 500,
@@ -399,6 +401,27 @@ if QtWidgets is not None:
             group_behavior = QGroupBox("Window Rules & Behavior")
             behavior_form = QVBoxLayout(group_behavior)
 
+            self.chk_quick_tile = QCheckBox("Apply gaps to split / quick-tiled windows")
+            self.chk_quick_tile.setToolTip(
+                "When enabled, windows tiled via Meta + Arrow keys or screen edge dragging will have gaps applied."
+            )
+            behavior_form.addWidget(self.chk_quick_tile)
+
+            inner_gap_box = QHBoxLayout()
+            lbl_inner_gap = QLabel("Split window inner gap:")
+            lbl_inner_gap.setToolTip("Spacing (in pixels) between adjacent split/tiled windows.")
+            self.spin_inner_gap = QSpinBox()
+            self.spin_inner_gap.setRange(0, 100)
+            self.spin_inner_gap.setSuffix(" px")
+            self.spin_inner_gap.setValue(DEFAULT_CONFIG["quickTileInnerGap"])
+            self.spin_inner_gap.setToolTip(lbl_inner_gap.toolTip())
+            inner_gap_box.addWidget(lbl_inner_gap)
+            inner_gap_box.addWidget(self.spin_inner_gap)
+            inner_gap_box.addStretch()
+            behavior_form.addLayout(inner_gap_box)
+
+            self.chk_quick_tile.toggled.connect(self.spin_inner_gap.setEnabled)
+
             self.chk_auto_maximize = QCheckBox("Automatically maximize newly opened windows (with gaps)")
             self.chk_auto_maximize.setToolTip("When enabled, windows will automatically open maximized with gaps.")
             behavior_form.addWidget(self.chk_auto_maximize)
@@ -487,6 +510,13 @@ if QtWidgets is not None:
             self.spin_dock_margin.setValue(read_kwin_config("dockMargin", DEFAULT_CONFIG["dockMargin"]))
             self.spin_dock_margin.setEnabled(compensate_dock)
 
+            apply_qt = read_kwin_config("applyToQuickTile", DEFAULT_CONFIG["applyToQuickTile"])
+            self.chk_quick_tile.setChecked(apply_qt)
+            self.spin_inner_gap.setValue(
+                read_kwin_config("quickTileInnerGap", DEFAULT_CONFIG["quickTileInnerGap"])
+            )
+            self.spin_inner_gap.setEnabled(apply_qt)
+
             self.chk_auto_maximize.setChecked(
                 read_kwin_config("autoMaximizeNewWindows", DEFAULT_CONFIG["autoMaximizeNewWindows"])
             )
@@ -538,6 +568,9 @@ if QtWidgets is not None:
             self.chk_sync.setChecked(True)
             self.chk_compensate_dock.setChecked(DEFAULT_CONFIG["compensateDock"])
             self.spin_dock_margin.setValue(DEFAULT_CONFIG["dockMargin"])
+            self.chk_quick_tile.setChecked(DEFAULT_CONFIG["applyToQuickTile"])
+            self.spin_inner_gap.setValue(DEFAULT_CONFIG["quickTileInnerGap"])
+            self.spin_inner_gap.setEnabled(DEFAULT_CONFIG["applyToQuickTile"])
             self.chk_auto_maximize.setChecked(DEFAULT_CONFIG["autoMaximizeNewWindows"])
             self.chk_fullscreen.setChecked(DEFAULT_CONFIG["applyToFullscreen"])
             self.spin_fs_cooldown.setValue(DEFAULT_CONFIG["fullscreenExitCooldown"])
@@ -552,6 +585,8 @@ if QtWidgets is not None:
                 "gapRight": self.spins["right"].value(),
                 "compensateDock": self.chk_compensate_dock.isChecked(),
                 "dockMargin": self.spin_dock_margin.value(),
+                "applyToQuickTile": self.chk_quick_tile.isChecked(),
+                "quickTileInnerGap": self.spin_inner_gap.value(),
                 "autoMaximizeNewWindows": self.chk_auto_maximize.isChecked(),
                 "applyToFullscreen": self.chk_fullscreen.isChecked(),
                 "fullscreenExitCooldown": self.spin_fs_cooldown.value(),

@@ -6,7 +6,7 @@
                 "Name": "Flo"
             }
         ],
-        "Description": "Adds configurable padding and gaps (top, bottom, left, right) to maximized windows",
+        "Description": "Adds configurable padding and gaps (top, bottom, left, right) to maximized and split / quick-tiled windows",
         "Icon": "preferences-system-windows-script-test",
         "Id": "kgaps",
         "License": "GPL-3.0-or-later",

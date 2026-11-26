@@ -2,11 +2,12 @@
 
 <img width="1920" height="1080" alt="KGaps Preview" src="https://github.com/user-attachments/assets/4f041bda-82ce-4011-bf91-8c3e25f9e0cd" />
 
-A native KWin script for **KDE Plasma 6** (Wayland & X11) that adds customizable padding and gaps (top, bottom, left, and right) around maximized applications.
+A native KWin script for **KDE Plasma 6** (Wayland & X11) that adds customizable padding and gaps (top, bottom, left, and right) around maximized and split / quick-tiled applications.
 
 ## Features
 
 - **Per-side Gap Customization**: Set independent padding for **Top**, **Bottom**, **Left**, and **Right** (default: 15px).
+- **Split & Quick-Tiling Support**: Automatically adds outer edge gaps and inner dividing gaps between split/tiled windows (Meta + Arrow keys or screen edges).
 - **Standalone Settings App & KDE Integration**: Configure via `kgaps-settings` (with live visual preview) or **KDE System Settings → Window Management → KWin Scripts**.
 - **Wayland Native**: Resizes windows smoothly without breaking native un-maximize or fighting window clients.
 - **Dock / Panel Compensation**: Automatically preserves floating panel appearance when windows are maximized.
@@ -61,6 +62,7 @@ In the app, you can:
 - Adjust **Top**, **Bottom**, **Left**, and **Right** padding individually or lock all sides together.
 - Pick from quick presets (`0px`, `10px`, `15px`, `20px`, `30px`).
 - Toggle floating panel/dock margin compensation.
+- Enable gaps for split / quick-tiled windows with customizable inner gap spacing.
 - Enable auto-maximize for newly opened windows, fullscreen gap override, and fullscreen exit cooldown.
 - Click **Apply Changes** to apply settings immediately in real time.
 
